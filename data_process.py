@@ -1,6 +1,6 @@
 
 from python_speech_features import mfcc
-from trim_audio import trim_test_file
+# from trim_audio import trim_test_file
 import soundfile as sf
 import random
 import os
@@ -41,10 +41,8 @@ class Data_process():
 
                 label = np.append([],int(filename.split('_')[1][0]))
             label = np.repeat(label,self.sample_per_wav)
-            # print(label)
             
             self.train_y = np.concatenate((self.train_y,label))
-            # print(train_x.shape,train_y.shape)
         np.save('train_x_1.npy',self.train_x)
         np.save('train_y_1.npy',self.train_y)
         return self.train_x,self.train_y
